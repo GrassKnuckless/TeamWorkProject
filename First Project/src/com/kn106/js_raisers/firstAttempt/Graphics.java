@@ -68,7 +68,6 @@ public class Graphics extends Application {
             public void handle(MouseEvent t) {
 
                 // FAQ button cursor changer
-                setting_logoView.setStyle("-fx-shadow-highlight-color");
                 RotateTransition rt = new RotateTransition(Duration.millis(1000), setting_logoView);
                 rt.setByAngle(360);
                 rt.setCycleCount(1);
@@ -148,38 +147,92 @@ public class Graphics extends Application {
         faq.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                // FAQ popup field
+                ////////// FAQ popup field /////////////
+
                 // FAQ popup top field
                 Rectangle popup_top = new Rectangle(310,300,1200, 10);
                 popup_top.setFill(Color.rgb(209,186,202));
 
-                Line popup_top_border1 = new Line(310,300,310,310);
-                popup_top_border1.setStroke(Color.rgb(85,83,85));
-                Line popup_top_border2 = new Line(310,300,1510,300);
-                popup_top_border2.setStroke(Color.rgb(85,83,85));
-                Line popup_top_border3 = new Line(1510,300,1510,310);
-                popup_top_border3.setStroke(Color.rgb(85,83,85));
-
                 root.getChildren().add(popup_top);
-                root.getChildren().addAll(popup_top_border1, popup_top_border2, popup_top_border3);
 
                 // FAQ popup main field
                 Rectangle popup_main = new Rectangle(310,310,1200, 400);
                 popup_main.setFill(Color.rgb(232,232,232));
-                popup_main.setStroke(Color.rgb(85,83,85));
                 root.getChildren().add(popup_main);
 
+                // FAQ popup borders
+                Line popup_border1 = new Line(310,300,310,710);
+                popup_border1.setStroke(Color.rgb(85,83,85));
+
+                Line popup_border2 = new Line(1510,300,1510,710);
+                popup_border2.setStroke(Color.rgb(85,83,85));
+
+                Line popup_border3 = new Line(310,300,1510,300);
+                popup_border3.setStroke(Color.rgb(85,83,85));
+
+                Line popup_border4 = new Line(310,710,1510,710);
+                popup_border4.setStroke(Color.rgb(85,83,85));
+
+                root.getChildren().addAll(popup_border1, popup_border2, popup_border3, popup_border4);
+
                 // Students who participated in this project
-                Text inside_faq = new Text(500, 355, "Students who participated in this project:");
+                Text inside_faq = new Text(500, 375, "Students who participated in this project:");
                 inside_faq.setFill(Color.rgb(53,56,58));
                 inside_faq.setFont(Font.font ("Proxima Nova", FontWeight.BOLD, 45));
                 root.getChildren().add(inside_faq);
 
                 // Students names
-                Text inside_faq2 = new Text(770, 410, "Stadnytskyi Dmytro\nPotashnik Mykhailo");
+                Text inside_faq2 = new Text(780, 430, "Stadnytskyi Dmytro\nPotashnik Mykhailo\nMrglotskyi Markyian");
                 inside_faq2.setFill(Color.rgb(115,108,120));
                 inside_faq2.setFont(Font.font ("Proxima Nova", 30));
                 root.getChildren().add(inside_faq2);
+
+                // FAQ ❌(close) button
+                Text FAQ_close_button = new Text(1470, 345, "❌");
+                FAQ_close_button.setFont(Font.font ("Verdana", 28));
+                FAQ_close_button.setFill(Color.rgb(38,40,42));
+                root.getChildren().add(FAQ_close_button);
+
+                        //FAQ close button onMouseEntered
+                        FAQ_close_button.setOnMouseEntered(new EventHandler<MouseEvent>
+                                () {
+
+                            @Override
+                            public void handle(MouseEvent t) {
+
+                                // FAQ button cursor changer
+                                FAQ_close_button.setStyle("-fx-cursor: hand");
+                                FillTransition fillTransition = new FillTransition(Duration.seconds(0.3), FAQ_close_button);
+                                fillTransition.setFromValue(Color.rgb(38,40,42));
+                                fillTransition.setToValue(Color.rgb(214, 96, 148));
+                                fillTransition.setAutoReverse(true);
+                                fillTransition.play();
+
+                            }
+                        });
+
+                        //FAQ close button onMouseExited
+                        FAQ_close_button.setOnMouseExited(new EventHandler<MouseEvent>
+                                () {
+
+                            @Override
+                            public void handle(MouseEvent t) {
+                                FAQ_close_button.setFill(Color.rgb(38,40,42));
+                            }
+                        });
+
+                        // FAQ_close_button onMouseClicked
+                        FAQ_close_button.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                            @Override
+                            public void handle(MouseEvent event) {
+                                root.getChildren().removeAll(inside_faq, inside_faq2, popup_border1, popup_border2, popup_border3, popup_border4, popup_top, popup_main);
+                                Rectangle deleteBut = new Rectangle(1450,310,50, 50);
+                                deleteBut.setFill(Color.rgb(227,225,228));
+                                root.getChildren().add(deleteBut);
+                            }
+                        });
+
+
             }
         });
 
@@ -211,4 +264,5 @@ public class Graphics extends Application {
 
 
     }
+
 }
