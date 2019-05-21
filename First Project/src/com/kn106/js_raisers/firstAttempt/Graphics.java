@@ -36,6 +36,7 @@ import javafx.scene.shape.*;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.awt.image.RenderedImage;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -146,11 +147,25 @@ public class Graphics extends Application {
         Rectangle first_image_with_desc = new Rectangle(773,582,293, 216);
         first_image_with_desc.setFill(Color.WHITE);
         root.getChildren().add(first_image_with_desc);
+        Image new_features = new Image(new FileInputStream("First Project/pics/new_features.jpg"));
+        ImageView new_featuresView = new ImageView(new_features);
+        new_featuresView.setX(773);
+        new_featuresView.setY(582);
+        new_featuresView.setFitWidth(293);
+        new_featuresView.setFitHeight(216);
+        root.getChildren().add(new_featuresView);
 
         // Greetings => first image with description
         Rectangle second_image_with_desc = new Rectangle(1092,582,293, 216);
         second_image_with_desc.setFill(Color.WHITE);
         root.getChildren().add(second_image_with_desc);
+        Image new_features2 = new Image(new FileInputStream("First Project/pics/app1.jpg"));
+        ImageView new_featuresView2 = new ImageView(new_features2);
+        new_featuresView2.setX(1092);
+        new_featuresView2.setY(582);
+        new_featuresView2.setFitWidth(293);
+        new_featuresView2.setFitHeight(216);
+        root.getChildren().add(new_featuresView2);
 
         // Greetings => new file image
         Image new_file_image = new Image(new FileInputStream("First Project/pics/newFile.png"));
@@ -204,6 +219,9 @@ public class Graphics extends Application {
 
         // FileChooser
         FileChooser fileChooser = new FileChooser();
+        FileChooser.ExtensionFilter extFilter =
+                new FileChooser.ExtensionFilter("Image Files", "*.jpg", "*.png");
+        fileChooser.getExtensionFilters().add(extFilter);
 
         Text old_pic_Text = new Text(500, 270,"Old");
         old_pic_Text.setFill(Color.rgb(53,56,58));
@@ -214,13 +232,13 @@ public class Graphics extends Application {
         new_pic_Text.setFont(Font.font ("Proxima Nova", FontWeight.BOLD, 30));
 
         // Save jpg
-        Text save_jpg_Text = new Text(1800, 800,"Save .jpg");
-        save_jpg_Text.setFill(Color.rgb(53,56,58));
+        Text save_jpg_Text = new Text(1759, 900,"Save .jpg");
+        save_jpg_Text.setFill(Color.web("#78797A"));
         save_jpg_Text.setFont(Font.font ("Proxima Nova", FontWeight.BOLD, 20));
 
         // Save png
-        Text save_png_Text = new Text(1800, 840,"Save .png");
-        save_png_Text.setFill(Color.rgb(53,56,58));
+        Text save_png_Text = new Text(1756, 930,"Save .png");
+        save_png_Text.setFill(Color.web("#78797A"));
         save_png_Text.setFont(Font.font ("Proxima Nova", FontWeight.BOLD, 20));
 
         // 🡐 Back button
@@ -307,7 +325,7 @@ public class Graphics extends Application {
         slider_blue.setLayoutY(110);
 
         // slider for thickness
-        Text slider_thicknessText = new Text(1720, 121, "Thickness: ");
+        Text slider_thicknessText = new Text(1720, 85, "Thickness: ");
         slider_thicknessText.setFont(Font.font ("Dubai", FontWeight.BOLD, 15));
         slider_thicknessText.setFill(Color.web("#78797A"));
 
@@ -317,9 +335,9 @@ public class Graphics extends Application {
         slider_thickness.setValue(100);
         slider_thickness.setMaxWidth(100);
         slider_thickness.setLayoutX(1785);
-        slider_thickness.setLayoutY(110);
+        slider_thickness.setLayoutY(75);
 
-        Text thicknessText = new Text(1745, 150, "Value: 100px");
+        Text thicknessText = new Text(1745, 115, "Value: 100px");
         thicknessText.setFont(Font.font ("Dubai", FontWeight.BOLD, 20));
         thicknessText.setFill(Color.web("#78797A"));
 
@@ -340,13 +358,43 @@ public class Graphics extends Application {
         line_under_brightness.setStrokeWidth(1);
         line_under_brightness.setStroke(Color.BLACK);
 
+        Line line_shapes_1 = new Line(1676, 138, 1920, 138);
+        line_shapes_1.setStrokeWidth(1);
+        line_shapes_1.setStroke(Color.BLACK);
+
+        Line line_shapes_2 = new Line(1676, 202, 1920, 202);
+        line_shapes_2.setStrokeWidth(1);
+        line_shapes_2.setStroke(Color.BLACK);
+
+        Line line_shapes_3 = new Line(1676, 352, 1920, 352);
+        line_shapes_3.setStrokeWidth(1);
+        line_shapes_3.setStroke(Color.BLACK);
+
+        Line line_shapes_4 = new Line(1676, 409, 1920, 409);
+        line_shapes_4.setStrokeWidth(1);
+        line_shapes_4.setStroke(Color.BLACK);
+
+        Line line_shapes_5 = new Line(1676, 466, 1920, 466);
+        line_shapes_5.setStrokeWidth(1);
+        line_shapes_5.setStroke(Color.BLACK);
+
+        Line line_shapes_new1 = new Line(1676, 473, 1920, 473);
+        line_shapes_new1.setStrokeWidth(1);
+        line_shapes_new1.setStroke(Color.BLACK);
+
+
+
         Line line3 = new Line(1676, 550, 1920, 550);
         line3.setStrokeWidth(1);
         line3.setStroke(Color.BLACK);
 
-        Line line4 = new Line(1676, 607, 1920, 607);
+        Line line4 = new Line(1676, 609, 1920, 609);
         line4.setStrokeWidth(1);
         line4.setStroke(Color.BLACK);
+
+        Line line10 = new Line(1676, 530, 1920, 530);
+        line10.setStrokeWidth(1);
+        line10.setStroke(Color.BLACK);
 
 
         Slider slider_brightness = new Slider();
@@ -380,6 +428,10 @@ public class Graphics extends Application {
         navbar_brushesIconText.setFont(Font.font ("Dubai", 13));
         navbar_brushesIconText.setFill(Color.WHITE);
 
+        Text text_hint = new Text(1705, 100,"Choose function from\n         navigation bar");
+        text_hint.setFont(Font.font ("Dubai", FontWeight.BOLD, 20));
+        text_hint.setFill(Color.web("#78797A"));
+
         // top navbar2 : navbar_shapesRect, navbar_shapesIconView, navbar_shapesIconText
         Rectangle navbar_shapesRect = new Rectangle(830,0,70, 50);
         navbar_shapesRect.setFill(Color.rgb(63,66,73));
@@ -398,7 +450,7 @@ public class Graphics extends Application {
         ImageView navbar_stickersIconView = new ImageView(navbar_stickersIcon);
         navbar_stickersIconView.setX(900);
         navbar_stickersIconView.setY(10);
-        Text navbar_stickersIconText = new Text(893, 43, "Effects");
+        Text navbar_stickersIconText = new Text(894, 43, "Effects");
         navbar_stickersIconText.setFont(Font.font ("Dubai", 13));
         navbar_stickersIconText.setFill(Color.WHITE);
 
@@ -420,6 +472,8 @@ public class Graphics extends Application {
         field_for_features.setFill(Color.web("#F0F2F3"));
 
         Button btn1 = new Button("Circle");
+        Button btn_star = new Button("Star");
+        Button btn_def = new Button("Default");
         Button btn2 = new Button("Square");
         Button btn3 = new Button("Sort Pixels By Hue");
         Button btn4 = new Button("Sort Pixels By Saturation");
@@ -427,14 +481,9 @@ public class Graphics extends Application {
         Button btn_green = new Button("Sort Pixels By Green");
         Button btn_blue = new Button("Sort Pixels By Blue");
         Button btn_brith = new Button("Sort Pixels By Brightness");
-        Button btn_fill = new Button("fill / stroke");
-        btn_fill.setLayoutY(220);
-        btn_fill.setLayoutX(1780);
-
-        Button btn4_clear = new Button("Clear");
-
-        btn1.setLayoutY(209);
-        btn1.setLayoutX(1773);
+        Button btn_fill = new Button("Fill / Stroke");
+        btn_fill.setLayoutY(156);
+        btn_fill.setLayoutX(1756);
 
         btn1.setStyle(
                 "-fx-border-color: #78797A; "
@@ -447,8 +496,75 @@ public class Graphics extends Application {
                         + "-fx-border-width: 2;"
         );
 
-        btn2.setLayoutY(250);
-        btn2.setLayoutX(1770);
+        btn_star.setStyle(
+                "-fx-border-color: #78797A; "
+                        + "-fx-text-fill: #78797A;"
+                        + "-fx-background-color: white;"
+                        + "-fx-font-weight: 700;"
+                        + "-fx-font-size: 12px;"
+                        + "-fx-border-radius: 2;"
+                        + "-fx-border-style: solid;"
+                        + "-fx-border-width: 2;"
+        );
+
+        btn_def.setStyle(
+                "-fx-border-color: #78797A; "
+                        + "-fx-text-fill: #78797A;"
+                        + "-fx-background-color: white;"
+                        + "-fx-font-weight: 700;"
+                        + "-fx-font-size: 12px;"
+                        + "-fx-border-radius: 2;"
+                        + "-fx-border-style: solid;"
+                        + "-fx-border-width: 2;"
+        );
+
+        btn2.setStyle(
+                "-fx-border-color: #78797A; "
+                        + "-fx-text-fill: #78797A;"
+                        + "-fx-background-color: white;"
+                        + "-fx-font-weight: 700;"
+                        + "-fx-font-size: 12px;"
+                        + "-fx-border-radius: 2;"
+                        + "-fx-border-style: solid;"
+                        + "-fx-border-width: 2;"
+        );
+
+        btn_fill.setStyle(
+                "-fx-border-color: #78797A; "
+                        + "-fx-text-fill: #78797A;"
+                        + "-fx-background-color: white;"
+                        + "-fx-font-weight: 700;"
+                        + "-fx-font-size: 12px;"
+                        + "-fx-border-radius: 2;"
+                        + "-fx-border-style: solid;"
+                        + "-fx-border-width: 2;"
+        );
+
+        Button btn4_clear = new Button("Clear");
+
+        btn1.setLayoutY(220);
+        btn1.setLayoutX(1773);
+
+        btn_star.setLayoutY(306);
+        btn_star.setLayoutX(1777);
+
+        btn_def.setLayoutY(366);
+        btn_def.setLayoutX(1768);
+
+
+        btn1.setStyle(
+                "-fx-border-color: #78797A; "
+                        + "-fx-text-fill: #78797A;"
+                        + "-fx-background-color: white;"
+                        + "-fx-font-weight: 700;"
+                        + "-fx-font-size: 12px;"
+                        + "-fx-border-radius: 2;"
+                        + "-fx-border-style: solid;"
+                        + "-fx-border-width: 2;"
+        );
+
+        btn2.setLayoutY(262);
+        btn2.setLayoutX(1769);
 
         btn2.setStyle(
                 "-fx-border-color: #78797A; "
@@ -462,7 +578,7 @@ public class Graphics extends Application {
         );
 
         btn3.setLayoutY(250);
-        btn3.setLayoutX(1745);
+        btn3.setLayoutX(1738);
 
         btn3.setStyle(
                 "-fx-border-color: #78797A; "
@@ -476,7 +592,7 @@ public class Graphics extends Application {
         );
 
         btn4.setLayoutY(300);
-        btn4.setLayoutX(1730);
+        btn4.setLayoutX(1723);
 
         btn4.setStyle(
                 "-fx-border-color: #78797A; "
@@ -490,7 +606,7 @@ public class Graphics extends Application {
         );
 
         btn_red.setLayoutY(350);
-        btn_red.setLayoutX(1745);
+        btn_red.setLayoutX(1738);
 
         btn_red.setStyle(
                 "-fx-border-color: #78797A; "
@@ -504,7 +620,7 @@ public class Graphics extends Application {
         );
 
         btn_green.setLayoutY(400);
-        btn_green.setLayoutX(1741);
+        btn_green.setLayoutX(1734);
 
         btn_green.setStyle(
                 "-fx-border-color: #78797A; "
@@ -518,7 +634,7 @@ public class Graphics extends Application {
         );
 
         btn_blue.setLayoutY(450);
-        btn_blue.setLayoutX(1745);
+        btn_blue.setLayoutX(1738);
 
         btn_blue.setStyle(
                 "-fx-border-color: #78797A; "
@@ -532,7 +648,7 @@ public class Graphics extends Application {
         );
 
         btn_brith.setLayoutY(500);
-        btn_brith.setLayoutX(1730);
+        btn_brith.setLayoutX(1723);
 
         btn_brith.setStyle(
                 "-fx-border-color: #78797A; "
@@ -545,8 +661,8 @@ public class Graphics extends Application {
                         + "-fx-border-width: 2;"
         );
 
-        btn4_clear.setLayoutY(565);
-        btn4_clear.setLayoutX(1780);
+        btn4_clear.setLayoutY(421);
+        btn4_clear.setLayoutX(1776);
 
         btn4_clear.setStyle(
                 "-fx-border-color: #78797A; "
@@ -567,8 +683,19 @@ public class Graphics extends Application {
         final ColorPicker colorPicker = new ColorPicker();
         colorPicker.setValue(Color.CORAL);
 
-        colorPicker.setLayoutX(1730);
+        colorPicker.setLayoutX(1738);
         colorPicker.setLayoutY(650);
+
+        colorPicker.setStyle(
+                "-fx-border-color: #78797A; "
+                        + "-fx-text-fill: #78797A;"
+                        + "-fx-background-color: white;"
+                        + "-fx-font-weight: 700;"
+                        + "-fx-font-size: 12px;"
+                        + "-fx-border-radius: 2;"
+                        + "-fx-border-style: solid;"
+                        + "-fx-border-width: 2;"
+        );
 
         navbar_stickersIconView.setOnMouseEntered(new EventHandler<MouseEvent>
                 () {
@@ -589,6 +716,25 @@ public class Graphics extends Application {
             }
         });
 
+        navbar_textIconView.setOnMouseEntered(new EventHandler<MouseEvent>
+                () {
+
+            @Override
+            public void handle(MouseEvent t) {
+                navbar_textIconView.setCursor(Cursor.HAND);
+                navbar_textIconText.setFill(Color.web("#0064B6"));
+            }
+        });
+
+        navbar_textIconView.setOnMouseExited(new EventHandler<MouseEvent>
+                () {
+
+            @Override
+            public void handle(MouseEvent t) {
+                navbar_textIconText.setFill(Color.WHITE);
+            }
+        });
+
 
         // one
         navbar_brushesIconView.setOnMouseClicked(new EventHandler<MouseEvent>
@@ -598,11 +744,101 @@ public class Graphics extends Application {
             @Override
             public void handle(MouseEvent t) {
 
+                colorPicker.setOnMouseEntered(new EventHandler<MouseEvent>
+                        () {
+
+                    @Override
+                    public void handle(MouseEvent t) {
+                        line_shapes_5.setStroke(Color.web("#0064B6"));
+                        line10.setStroke(Color.web("#0064B6"));
+                        colorPicker.setStyle(
+                                "-fx-border-color: #659bf2; "
+                                        + "-fx-text-fill: white;"
+                                        + "-fx-background-color: #659bf2;"
+                                        + "-fx-font-weight: 700;"
+                                        + "-fx-font-size: 12px;"
+                                        + "-fx-border-radius: 2;"
+                                        + "-fx-border-style: solid;"
+                                        + "-fx-border-width: 2;"
+                                        + "-fx-cursor: hand;"
+                        );
+                    }
+                });
+
+                colorPicker.setOnMouseExited(new EventHandler<MouseEvent>(){
+
+                    @Override
+                    public void handle(MouseEvent t) {
+                        line_shapes_5.setStroke(Color.BLACK);
+                        line10.setStroke(Color.BLACK);
+                        colorPicker.setStyle(
+                                "-fx-border-color: #78797A; "
+                                        + "-fx-text-fill: #78797A;"
+                                        + "-fx-background-color: white;"
+                                        + "-fx-font-weight: 700;"
+                                        + "-fx-font-size: 12px;"
+                                        + "-fx-border-radius: 2;"
+                                        + "-fx-border-style: solid;"
+                                        + "-fx-border-width: 2;"
+                        );
+                    }
+                });
+
+                btn4_clear.setOnMouseEntered(new EventHandler<MouseEvent>
+                        () {
+
+                    @Override
+                    public void handle(MouseEvent t) {
+                        line_shapes_4.setStroke(Color.web("#0064B6"));
+                        line_shapes_5.setStroke(Color.web("#0064B6"));
+                        btn4_clear.setStyle(
+                                "-fx-border-color: #659bf2; "
+                                        + "-fx-text-fill: white;"
+                                        + "-fx-background-color: #659bf2;"
+                                        + "-fx-font-weight: 700;"
+                                        + "-fx-font-size: 12px;"
+                                        + "-fx-border-radius: 2;"
+                                        + "-fx-border-style: solid;"
+                                        + "-fx-border-width: 2;"
+                                        + "-fx-cursor: hand;"
+                        );
+                    }
+                });
+
+                btn4_clear.setOnMouseExited(new EventHandler<MouseEvent>(){
+
+                    @Override
+                    public void handle(MouseEvent t) {
+                        line_shapes_4.setStroke(Color.BLACK);
+                        line_shapes_5.setStroke(Color.BLACK);
+                        btn4_clear.setStyle(
+                                "-fx-border-color: #78797A; "
+                                        + "-fx-text-fill: #78797A;"
+                                        + "-fx-background-color: white;"
+                                        + "-fx-font-weight: 700;"
+                                        + "-fx-font-size: 12px;"
+                                        + "-fx-border-radius: 2;"
+                                        + "-fx-border-style: solid;"
+                                        + "-fx-border-width: 2;"
+                        );
+                    }
+                });
+
+                btn4_clear.setLayoutY(423);
+                colorPicker.setLayoutY(485);
+
                 field_for_features.setVisible(true);
                 line_on_top_of_brightness.setVisible(false);
                 line_under_brightness.setVisible(false);
+                line_shapes_1.setVisible(true);
+                line_shapes_2.setVisible(true);
+                line_shapes_3.setVisible(true);
+                line_shapes_4.setVisible(true);
+                line_shapes_5.setVisible(true);
+                line_shapes_new1.setVisible(false);
                 line3.setVisible(false);
                 line4.setVisible(false);
+                line10.setVisible(true);
                 btn_fill.setVisible(true);
                 brightnessText.setVisible(false);
                 slider_brightness.setVisible(false);
@@ -614,10 +850,13 @@ public class Graphics extends Application {
                 slider_blue.setVisible(false);
                 slider_blueText.setVisible(false);
                 btn1.setVisible(true);
+                btn_star.setVisible(true);
+                btn_def.setVisible(true);
                 btn2.setVisible(true);
                 btn3.setVisible(false);
                 btn4.setVisible(false);
                 btn4_clear.setVisible(true);
+                text_hint.setVisible(false);
                 btn_red.setVisible(false);
                 btn_green.setVisible(false);
                 btn_blue.setVisible(false);
@@ -639,11 +878,102 @@ public class Graphics extends Application {
             @Override
             public void handle(MouseEvent t) {
 
+                colorPicker.setLayoutY(426);
+
+                colorPicker.setOnMouseEntered(new EventHandler<MouseEvent>
+                        () {
+
+                    @Override
+                    public void handle(MouseEvent t) {
+                        line_shapes_4.setStroke(Color.web("#0064B6"));
+                        line_shapes_new1.setStroke(Color.web("#0064B6"));
+                        colorPicker.setStyle(
+                                "-fx-border-color: #659bf2; "
+                                        + "-fx-text-fill: white;"
+                                        + "-fx-background-color: #659bf2;"
+                                        + "-fx-font-weight: 700;"
+                                        + "-fx-font-size: 12px;"
+                                        + "-fx-border-radius: 2;"
+                                        + "-fx-border-style: solid;"
+                                        + "-fx-border-width: 2;"
+                                        + "-fx-cursor: hand;"
+                        );
+                    }
+                });
+
+                colorPicker.setOnMouseExited(new EventHandler<MouseEvent>(){
+
+                    @Override
+                    public void handle(MouseEvent t) {
+                        line_shapes_4.setStroke(Color.BLACK);
+                        line_shapes_new1.setStroke(Color.BLACK);
+                        colorPicker.setStyle(
+                                "-fx-border-color: #78797A; "
+                                        + "-fx-text-fill: #78797A;"
+                                        + "-fx-background-color: white;"
+                                        + "-fx-font-weight: 700;"
+                                        + "-fx-font-size: 12px;"
+                                        + "-fx-border-radius: 2;"
+                                        + "-fx-border-style: solid;"
+                                        + "-fx-border-width: 2;"
+                        );
+                    }
+                });
+
+                btn4_clear.setOnMouseEntered(new EventHandler<MouseEvent>
+                        () {
+
+                    @Override
+                    public void handle(MouseEvent t) {
+                        line_shapes_3.setStroke(Color.web("#0064B6"));
+                        line_shapes_4.setStroke(Color.web("#0064B6"));
+                        btn4_clear.setStyle(
+                                "-fx-border-color: #659bf2; "
+                                        + "-fx-text-fill: white;"
+                                        + "-fx-background-color: #659bf2;"
+                                        + "-fx-font-weight: 700;"
+                                        + "-fx-font-size: 12px;"
+                                        + "-fx-border-radius: 2;"
+                                        + "-fx-border-style: solid;"
+                                        + "-fx-border-width: 2;"
+                                        + "-fx-cursor: hand;"
+                        );
+                    }
+                });
+
+                btn4_clear.setOnMouseExited(new EventHandler<MouseEvent>(){
+
+                    @Override
+                    public void handle(MouseEvent t) {
+                        line_shapes_3.setStroke(Color.BLACK);
+                        line_shapes_4.setStroke(Color.BLACK);
+                        btn4_clear.setStyle(
+                                "-fx-border-color: #78797A; "
+                                        + "-fx-text-fill: #78797A;"
+                                        + "-fx-background-color: white;"
+                                        + "-fx-font-weight: 700;"
+                                        + "-fx-font-size: 12px;"
+                                        + "-fx-border-radius: 2;"
+                                        + "-fx-border-style: solid;"
+                                        + "-fx-border-width: 2;"
+                        );
+                    }
+                });
+
+                btn4_clear.setLayoutY(367);
+
                 field_for_features.setVisible(true);
                 line_on_top_of_brightness.setVisible(false);
                 line_under_brightness.setVisible(false);
+                line_shapes_1.setVisible(true);
+                line_shapes_2.setVisible(true);
+                line_shapes_3.setVisible(true);
+                line_shapes_4.setVisible(true);
+                line_shapes_5.setVisible(false);
+                line_shapes_new1.setVisible(true);
                 line3.setVisible(false);
                 line4.setVisible(false);
+                line10.setVisible(false);
                 btn_fill.setVisible(true);
                 brightnessText.setVisible(false);
                 slider_brightness.setVisible(false);
@@ -659,14 +989,19 @@ public class Graphics extends Application {
                 btn_blue.setVisible(false);
                 btn_brith.setVisible(false);
                 btn1.setVisible(true);
+                btn_star.setVisible(true);
+                btn_def.setVisible(false);
                 btn2.setVisible(true);
                 btn3.setVisible(false);
                 btn4.setVisible(false);
                 btn4_clear.setVisible(true);
+                text_hint.setVisible(false);
                 thicknessText.setVisible(true);
                 slider_thickness.setVisible(true);
                 slider_thicknessText.setVisible(true);
                 colorPicker.setVisible(true);
+                save_png_Text.setVisible(true);
+                save_jpg_Text.setVisible(true);
 
             }
         });
@@ -678,11 +1013,60 @@ public class Graphics extends Application {
             @Override
             public void handle(MouseEvent t) {
 
+                btn4_clear.setLayoutY(565);
+
+                btn4_clear.setOnMouseEntered(new EventHandler<MouseEvent>
+                        () {
+
+                    @Override
+                    public void handle(MouseEvent t) {
+                        line3.setStroke(Color.web("#0064B6"));
+                        line4.setStroke(Color.web("#0064B6"));
+                        btn4_clear.setStyle(
+                                "-fx-border-color: #659bf2; "
+                                        + "-fx-text-fill: white;"
+                                        + "-fx-background-color: #659bf2;"
+                                        + "-fx-font-weight: 700;"
+                                        + "-fx-font-size: 12px;"
+                                        + "-fx-border-radius: 2;"
+                                        + "-fx-border-style: solid;"
+                                        + "-fx-border-width: 2;"
+                                        + "-fx-cursor: hand;"
+                        );
+                    }
+                });
+
+                btn4_clear.setOnMouseExited(new EventHandler<MouseEvent>(){
+
+                    @Override
+                    public void handle(MouseEvent t) {
+                        line3.setStroke(Color.BLACK);
+                        line4.setStroke(Color.BLACK);
+                        btn4_clear.setStyle(
+                                "-fx-border-color: #78797A; "
+                                        + "-fx-text-fill: #78797A;"
+                                        + "-fx-background-color: white;"
+                                        + "-fx-font-weight: 700;"
+                                        + "-fx-font-size: 12px;"
+                                        + "-fx-border-radius: 2;"
+                                        + "-fx-border-style: solid;"
+                                        + "-fx-border-width: 2;"
+                        );
+                    }
+                });
+
                 field_for_features.setVisible(true);
                 line_on_top_of_brightness.setVisible(true);
                 line_under_brightness.setVisible(true);
+                line_shapes_1.setVisible(false);
+                line_shapes_2.setVisible(false);
+                line_shapes_3.setVisible(false);
+                line_shapes_4.setVisible(false);
+                line_shapes_5.setVisible(false);
+                line_shapes_new1.setVisible(false);
                 line3.setVisible(true);
                 line4.setVisible(true);
+                line10.setVisible(false);
                 btn_fill.setVisible(false);
                 brightnessText.setVisible(true);
                 slider_brightness.setVisible(true);
@@ -700,6 +1084,8 @@ public class Graphics extends Application {
                 btn_blue.setVisible(true);
                 btn_brith.setVisible(true);
                 btn1.setVisible(false);
+                btn_star.setVisible(false);
+                btn_def.setVisible(false);
                 btn2.setVisible(false);
                 btn3.setVisible(true);
                 btn4.setVisible(true);
@@ -708,6 +1094,10 @@ public class Graphics extends Application {
                 slider_thickness.setVisible(false);
                 slider_thicknessText.setVisible(false);
                 colorPicker.setVisible(false);
+                save_png_Text.setVisible(true);
+                save_jpg_Text.setVisible(true);
+                text_hint.setVisible(false);
+
             }
         });
 
@@ -783,20 +1173,20 @@ public class Graphics extends Application {
 
             @Override
             public void handle(MouseEvent t) {
-
-                // save_jpg_Text button cursor changer
-                save_jpg_Text.setStyle("-fx-cursor: hand;-fx-border-color: #0064B6");
-
+                save_jpg_Text.setFill(Color.web("#659bf2"));
+                save_jpg_Text.setStyle(
+                        "-fx-cursor: hand;"
+                );
             }
         });
 
-        //save_jpg_Text button onMouseExited
+        //save_png_Text button onMouseExited
         save_jpg_Text.setOnMouseExited(new EventHandler<MouseEvent>
                 () {
 
             @Override
             public void handle(MouseEvent t) {
-                save_jpg_Text.setFill(Color.rgb(38,40,42));
+                save_jpg_Text.setFill(Color.web("#78797A"));
             }
         });
 
@@ -806,10 +1196,10 @@ public class Graphics extends Application {
 
             @Override
             public void handle(MouseEvent t) {
-
-                // save_png_Text button cursor changer
-                save_png_Text.setStyle("-fx-cursor: hand; -fx-border-color: #0064B6");
-
+                save_png_Text.setFill(Color.web("#659bf2"));
+                save_png_Text.setStyle(
+                                "-fx-cursor: hand;"
+                );
             }
         });
 
@@ -819,7 +1209,7 @@ public class Graphics extends Application {
 
             @Override
             public void handle(MouseEvent t) {
-                save_png_Text.setFill(Color.rgb(38,40,42));
+                save_png_Text.setFill(Color.web("#78797A"));
             }
         });
 
@@ -1270,7 +1660,7 @@ public class Graphics extends Application {
                 // create button cursor changer
                 root.getChildren().removeAll(new_file_Text, new_file_imageView, open_file_Text, open_folderImageView, paste_file_Text, paste_folderImageView,
                         first_adv, greetings_firstAdv_header, greetings_firstAdv_main, first_image_with_desc,second_image_with_desc, welcome_text,
-                        create_button, open_button, paste_button, tiger_parrot_imageView);
+                        create_button, open_button, paste_button, tiger_parrot_imageView, new_featuresView, new_featuresView2);
                 background.setFill(Color.rgb(197,199,197));
 
                 File start_file = fileChooser.showOpenDialog(primaryStage);
@@ -1518,7 +1908,7 @@ public class Graphics extends Application {
                                 try{
                                     ImageIO.write(SwingFXUtils.fromFXImage(wImage, null), "png", new FileOutputStream("image.png"));
                                     root.getChildren().removeAll(canvas, back_button, save_jpg_Text, save_png_Text, start_imageView, finish_imageView, new_pic_Text, old_pic_Text,
-                                     btn1, btn3, btn3, btn4, btn4_clear, btn_blue, btn_red, btn_green, btn_brith, setting_logoView);
+                                     btn1, btn_star, btn_def, btn3, btn3, btn4, btn4_clear, btn_blue, btn_red, btn_green, btn_brith, setting_logoView);
                                 } catch (IOException e) {
                                     e.printStackTrace();
                                 }
@@ -1635,7 +2025,7 @@ public class Graphics extends Application {
                 // create button cursor changer
                 root.getChildren().removeAll(new_file_Text, new_file_imageView, open_file_Text, open_folderImageView, paste_file_Text, paste_folderImageView,
                         first_adv, greetings_firstAdv_header, greetings_firstAdv_main, first_image_with_desc, second_image_with_desc, welcome_text,
-                        create_button, open_button, paste_button, tiger_parrot_imageView);
+                        create_button, open_button, paste_button, tiger_parrot_imageView, new_featuresView, new_featuresView2);
 
                 background.setFill(Color.rgb(180, 183, 181));
 
@@ -1654,11 +2044,21 @@ public class Graphics extends Application {
                         slider_brightness, slider_brightnessText, brightnessText, btn_fill);
 
                 root.getChildren().addAll(slider_redText, slider_greenText, slider_blueText, slider_red, slider_green, slider_blue,
-                        btn1, btn2,btn3, btn4,btn4_clear, thicknessText, slider_thickness, slider_thicknessText, btn_red, btn_green,
-                        btn_blue, btn_brith, colorPicker, line_on_top_of_brightness, line_under_brightness, line3, line4);
+                        btn1, btn_star, btn_def, btn2,btn3, btn4,btn4_clear, thicknessText, slider_thickness, slider_thicknessText, btn_red, btn_green,
+                        btn_blue, btn_brith, colorPicker, line_on_top_of_brightness, line_under_brightness, line3, line4, line10, line_shapes_1, line_shapes_2,
+                        line_shapes_3, line_shapes_4, line_shapes_5, line_shapes_new1, text_hint);
 
+                text_hint.setVisible(true);
+                line_shapes_1.setVisible(false);
+                line_shapes_2.setVisible(false);
+                line_shapes_3.setVisible(false);
+                line_shapes_4.setVisible(false);
+                line_shapes_5.setVisible(false);
+                line_shapes_new1.setVisible(false);
                 line3.setVisible(false);
                 line4.setVisible(false);
+                line4.setVisible(false);
+                line10.setVisible(false);
                 line_under_brightness.setVisible(false);
                 line_on_top_of_brightness.setVisible(false);
                 slider_redText.setVisible(false);
@@ -1672,6 +2072,8 @@ public class Graphics extends Application {
                 btn_blue.setVisible(false);
                 btn_brith.setVisible(false);
                 btn1.setVisible(false);
+                btn_star.setVisible(false);
+                btn_def.setVisible(false);
                 btn2.setVisible(false);
                 btn3.setVisible(false);
                 btn4.setVisible(false);
@@ -1773,7 +2175,6 @@ public class Graphics extends Application {
 
                         gc.drawImage(start_image, 0,0, 1500, 844);
 
-
                     }
                 });
 
@@ -1805,13 +2206,216 @@ public class Graphics extends Application {
                                     public void handle(MouseEvent t) {
                                         canvas.setCursor(Cursor.CROSSHAIR);
 
-
+                                        gc.setLineWidth(2);
                                         gc.setFill(colorPicker.getValue());
                                         gc.setStroke(colorPicker.getValue());
                                         if(fill)
                                             gc.fillOval(t.getX() - slider_thickness.getValue()/2, t.getY() - slider_thickness.getValue()/2, slider_thickness.getValue(), slider_thickness.getValue());
                                         else
                                             gc.strokeOval(t.getX() - slider_thickness.getValue()/2, t.getY() - slider_thickness.getValue()/2, slider_thickness.getValue(), slider_thickness.getValue());
+
+                                    }
+                                });
+
+                                canvas.setOnMouseClicked(new EventHandler<MouseEvent>
+                                        () {
+
+
+                                    @Override
+                                    public void handle(MouseEvent t) {
+                                        canvas.setCursor(Cursor.CROSSHAIR);
+
+                                        gc.setLineWidth(2);
+                                        gc.setFill(colorPicker.getValue());
+                                        gc.setStroke(colorPicker.getValue());
+                                        if(fill)
+                                            gc.fillOval(t.getX() - slider_thickness.getValue()/2, t.getY() - slider_thickness.getValue()/2, slider_thickness.getValue(), slider_thickness.getValue());
+                                        else
+                                            gc.strokeOval(t.getX() - slider_thickness.getValue()/2, t.getY() - slider_thickness.getValue()/2, slider_thickness.getValue(), slider_thickness.getValue());
+
+                                    }
+                                });
+
+
+
+                            }
+                        });
+
+                        canvas.setOnMousePressed(new EventHandler<MouseEvent>
+                                () {
+
+
+                            @Override
+                            public void handle(MouseEvent t) {
+                                System.out.println(false);
+                                canvas.setCursor(Cursor.DEFAULT);
+
+                            }
+                        });
+
+
+                    }
+                });
+
+                btn_def.setOnMouseClicked(new EventHandler<MouseEvent>
+                        () {
+
+                    @Override
+                    public void handle(MouseEvent t) {
+
+                        canvas.setCursor(Cursor.CROSSHAIR);
+                        gc.setLineWidth(slider_thickness.getValue());
+
+                        canvas.setOnMousePressed(new EventHandler<MouseEvent>
+                                () {
+                            @Override
+                            public void handle(MouseEvent t) {
+
+                                gc.beginPath();
+
+                                System.out.println(true);
+
+                                canvas.setCursor(Cursor.DEFAULT);
+
+                                canvas.setOnMouseMoved(new EventHandler<MouseEvent>
+                                        () {
+
+
+                                    @Override
+                                    public void handle(MouseEvent t) {
+                                        canvas.setCursor(Cursor.CROSSHAIR);
+
+                                        gc.setLineWidth(slider_thickness.getValue());
+                                        gc.setFill(colorPicker.getValue());
+                                        gc.setStroke(colorPicker.getValue());
+
+                                        gc.lineTo(t.getX(), t.getY());
+                                        gc.stroke();
+
+
+                                        gc.fillArc(t.getX() - slider_thickness.getValue()/1.6, t.getY() - slider_thickness.getValue()/1.6,
+                                                slider_thickness.getValue() * 1.5, slider_thickness.getValue() * 1.5,
+                                                0, 360, ArcType.ROUND);
+
+                                        gc.beginPath();
+                                        gc.moveTo(t.getX(), t.getY());
+
+                                    }
+                                });
+
+
+
+                            }
+                        });
+
+                        canvas.setOnMouseReleased(new EventHandler<MouseEvent>
+                                () {
+
+
+                            @Override
+                            public void handle(MouseEvent t) {
+                                gc.beginPath();
+
+                            }
+                        });
+
+                    }
+
+                });
+
+                btn_star.setOnMouseClicked(new EventHandler<MouseEvent>
+                        () {
+
+
+                    @Override
+                    public void handle(MouseEvent t) {
+
+
+
+                        canvas.setCursor(Cursor.CROSSHAIR);
+
+                        canvas.setOnMouseReleased(new EventHandler<MouseEvent>
+                                () {
+                            @Override
+                            public void handle(MouseEvent t) {
+
+                                System.out.println(true);
+
+                                canvas.setCursor(Cursor.DEFAULT);
+
+                                canvas.setOnMouseMoved(new EventHandler<MouseEvent>
+                                        () {
+
+
+                                    @Override
+                                    public void handle(MouseEvent t) {
+                                        canvas.setCursor(Cursor.CROSSHAIR);
+
+                                        gc.setLineWidth(2);
+                                        gc.setFill(colorPicker.getValue());
+                                        gc.setStroke(colorPicker.getValue());
+                                        double xpoints[] = {10 * slider_thickness.getValue()/100 + t.getX() - slider_thickness.getValue(),
+                                                85 * slider_thickness.getValue()/100 + t.getX() - slider_thickness.getValue(),
+                                                110 * slider_thickness.getValue()/100 + t.getX() - slider_thickness.getValue(),
+                                                135 * slider_thickness.getValue()/100 + t.getX() - slider_thickness.getValue(),
+                                                210 * slider_thickness.getValue()/100 + t.getX() - slider_thickness.getValue(),
+                                                160 * slider_thickness.getValue()/100 + t.getX() - slider_thickness.getValue(),
+                                                170 * slider_thickness.getValue()/100 + t.getX() - slider_thickness.getValue(),
+                                                110 * slider_thickness.getValue()/100 + t.getX() - slider_thickness.getValue(),
+                                                50 * slider_thickness.getValue()/100 + t.getX() - slider_thickness.getValue(),
+                                                60 * slider_thickness.getValue()/100 + t.getX() - slider_thickness.getValue()};
+                                        double ypoints[] = {85 * slider_thickness.getValue()/100 + t.getY() - slider_thickness.getValue(),
+                                                75 * slider_thickness.getValue()/100 + t.getY() - slider_thickness.getValue(),
+                                                10 * slider_thickness.getValue()/100 + t.getY() - slider_thickness.getValue(),
+                                                75 * slider_thickness.getValue()/100 + t.getY() - slider_thickness.getValue(),
+                                                85 * slider_thickness.getValue()/100 + t.getY() - slider_thickness.getValue(),
+                                                125 * slider_thickness.getValue()/100 + t.getY() - slider_thickness.getValue(),
+                                                190 * slider_thickness.getValue()/100 + t.getY() - slider_thickness.getValue(),
+                                                150 * slider_thickness.getValue()/100 + t.getY() - slider_thickness.getValue(),
+                                                190 * slider_thickness.getValue()/100 + t.getY() - slider_thickness.getValue(),
+                                                125 * slider_thickness.getValue()/100 + t.getY() - slider_thickness.getValue()};
+                                        if(fill)
+                                            gc.fillPolygon(xpoints, ypoints, xpoints.length);
+                                        else
+                                            gc.strokePolygon(xpoints, ypoints, xpoints.length);
+                                    }
+                                });
+
+                                canvas.setOnMouseClicked(new EventHandler<MouseEvent>
+                                        () {
+
+
+                                    @Override
+                                    public void handle(MouseEvent t) {
+                                        System.out.println(false);
+                                        canvas.setCursor(Cursor.DEFAULT);
+                                        gc.setLineWidth(2);
+                                        gc.setFill(colorPicker.getValue());
+                                        gc.setStroke(colorPicker.getValue());
+                                        double xpoints[] = {10 * slider_thickness.getValue()/100 + t.getX() - slider_thickness.getValue(),
+                                                85 * slider_thickness.getValue()/100 + t.getX() - slider_thickness.getValue(),
+                                                110 * slider_thickness.getValue()/100 + t.getX() - slider_thickness.getValue(),
+                                                135 * slider_thickness.getValue()/100 + t.getX() - slider_thickness.getValue(),
+                                                210 * slider_thickness.getValue()/100 + t.getX() - slider_thickness.getValue(),
+                                                160 * slider_thickness.getValue()/100 + t.getX() - slider_thickness.getValue(),
+                                                170 * slider_thickness.getValue()/100 + t.getX() - slider_thickness.getValue(),
+                                                110 * slider_thickness.getValue()/100 + t.getX() - slider_thickness.getValue(),
+                                                50 * slider_thickness.getValue()/100 + t.getX() - slider_thickness.getValue(),
+                                                60 * slider_thickness.getValue()/100 + t.getX() - slider_thickness.getValue()};
+                                        double ypoints[] = {85 * slider_thickness.getValue()/100 + t.getY() - slider_thickness.getValue(),
+                                                75 * slider_thickness.getValue()/100 + t.getY() - slider_thickness.getValue(),
+                                                10 * slider_thickness.getValue()/100 + t.getY() - slider_thickness.getValue(),
+                                                75 * slider_thickness.getValue()/100 + t.getY() - slider_thickness.getValue(),
+                                                85 * slider_thickness.getValue()/100 + t.getY() - slider_thickness.getValue(),
+                                                125 * slider_thickness.getValue()/100 + t.getY() - slider_thickness.getValue(),
+                                                190 * slider_thickness.getValue()/100 + t.getY() - slider_thickness.getValue(),
+                                                150 * slider_thickness.getValue()/100 + t.getY() - slider_thickness.getValue(),
+                                                190 * slider_thickness.getValue()/100 + t.getY() - slider_thickness.getValue(),
+                                                125 * slider_thickness.getValue()/100 + t.getY() - slider_thickness.getValue()};
+                                        if(fill)
+                                            gc.fillPolygon(xpoints, ypoints, xpoints.length);
+                                        else
+                                            gc.strokePolygon(xpoints, ypoints, xpoints.length);
 
                                     }
                                 });
@@ -1865,7 +2469,7 @@ public class Graphics extends Application {
                                     public void handle(MouseEvent t) {
                                         canvas.setCursor(Cursor.CROSSHAIR);
 
-
+                                        gc.setLineWidth(2);
                                         gc.setFill(colorPicker.getValue());
                                         gc.setStroke(colorPicker.getValue());
                                         if(fill)
@@ -1882,13 +2486,29 @@ public class Graphics extends Application {
                             }
                         });
 
+                        canvas.setOnMouseClicked(new EventHandler<MouseEvent>
+                                () {
+
+
+                            @Override
+                            public void handle(MouseEvent t) {
+                                canvas.setCursor(Cursor.DEFAULT);
+                                gc.setLineWidth(2);
+                                gc.setFill(colorPicker.getValue());
+                                gc.setStroke(colorPicker.getValue());
+                                if(fill)
+                                    gc.fillRect(t.getX() - slider_thickness.getValue()/2, t.getY() - slider_thickness.getValue()/2, slider_thickness.getValue(), slider_thickness.getValue());
+                                else
+                                    gc.strokeRect(t.getX() - slider_thickness.getValue()/2, t.getY() - slider_thickness.getValue()/2, slider_thickness.getValue(), slider_thickness.getValue());
+                            }
+                        });
+
                         canvas.setOnMousePressed(new EventHandler<MouseEvent>
                                 () {
 
 
                             @Override
                             public void handle(MouseEvent t) {
-                                System.out.println(false);
                                 canvas.setCursor(Cursor.DEFAULT);
 
                             }
@@ -1934,6 +2554,206 @@ public class Graphics extends Application {
                     }
                 });
 
+                btn_fill.setOnMouseEntered(new EventHandler<MouseEvent>
+                        () {
+
+                    @Override
+                    public void handle(MouseEvent t) {
+                        line_shapes_1.setStroke(Color.web("#0064B6"));
+                        line_shapes_2.setStroke(Color.web("#0064B6"));
+                        btn_fill.setStyle(
+                                "-fx-border-color: #659bf2; "
+                                        + "-fx-text-fill: white;"
+                                        + "-fx-background-color: #659bf2;"
+                                        + "-fx-font-weight: 700;"
+                                        + "-fx-font-size: 12px;"
+                                        + "-fx-border-radius: 2;"
+                                        + "-fx-border-style: solid;"
+                                        + "-fx-border-width: 2;"
+                                        + "-fx-cursor: hand;"
+                        );
+                    }
+                });
+
+                btn_fill.setOnMouseExited(new EventHandler<MouseEvent>(){
+
+                    @Override
+                    public void handle(MouseEvent t) {
+                        line_shapes_1.setStroke(Color.BLACK);
+                        line_shapes_2.setStroke(Color.BLACK);
+                        btn_fill.setStyle(
+                                "-fx-border-color: #78797A; "
+                                        + "-fx-text-fill: #78797A;"
+                                        + "-fx-background-color: white;"
+                                        + "-fx-font-weight: 700;"
+                                        + "-fx-font-size: 12px;"
+                                        + "-fx-border-radius: 2;"
+                                        + "-fx-border-style: solid;"
+                                        + "-fx-border-width: 2;"
+                        );
+                    }
+                });
+
+                btn2.setOnMouseEntered(new EventHandler<MouseEvent>
+                        () {
+
+                    @Override
+                    public void handle(MouseEvent t) {
+                        line_shapes_2.setStroke(Color.web("#0064B6"));
+                        line_shapes_3.setStroke(Color.web("#0064B6"));
+                        btn2.setStyle(
+                                "-fx-border-color: #659bf2; "
+                                        + "-fx-text-fill: white;"
+                                        + "-fx-background-color: #659bf2;"
+                                        + "-fx-font-weight: 700;"
+                                        + "-fx-font-size: 12px;"
+                                        + "-fx-border-radius: 2;"
+                                        + "-fx-border-style: solid;"
+                                        + "-fx-border-width: 2;"
+                                        + "-fx-cursor: hand;"
+                        );
+                    }
+                });
+
+                btn2.setOnMouseExited(new EventHandler<MouseEvent>(){
+
+                    @Override
+                    public void handle(MouseEvent t) {
+                        line_shapes_2.setStroke(Color.BLACK);
+                        line_shapes_3.setStroke(Color.BLACK);
+                        btn2.setStyle(
+                                "-fx-border-color: #78797A; "
+                                        + "-fx-text-fill: #78797A;"
+                                        + "-fx-background-color: white;"
+                                        + "-fx-font-weight: 700;"
+                                        + "-fx-font-size: 12px;"
+                                        + "-fx-border-radius: 2;"
+                                        + "-fx-border-style: solid;"
+                                        + "-fx-border-width: 2;"
+                        );
+                    }
+                });
+
+                btn_star.setOnMouseEntered(new EventHandler<MouseEvent>
+                        () {
+
+                    @Override
+                    public void handle(MouseEvent t) {
+                        line_shapes_2.setStroke(Color.web("#0064B6"));
+                        line_shapes_3.setStroke(Color.web("#0064B6"));
+                        btn_star.setStyle(
+                                "-fx-border-color: #659bf2; "
+                                        + "-fx-text-fill: white;"
+                                        + "-fx-background-color: #659bf2;"
+                                        + "-fx-font-weight: 700;"
+                                        + "-fx-font-size: 12px;"
+                                        + "-fx-border-radius: 2;"
+                                        + "-fx-border-style: solid;"
+                                        + "-fx-border-width: 2;"
+                                        + "-fx-cursor: hand;"
+                        );
+                    }
+                });
+
+                btn_def.setOnMouseEntered(new EventHandler<MouseEvent>
+                        () {
+
+                    @Override
+                    public void handle(MouseEvent t) {
+                        line_shapes_3.setStroke(Color.web("#0064B6"));
+                        line_shapes_4.setStroke(Color.web("#0064B6"));
+                        btn_def.setStyle(
+                                "-fx-border-color: #659bf2; "
+                                        + "-fx-text-fill: white;"
+                                        + "-fx-background-color: #659bf2;"
+                                        + "-fx-font-weight: 700;"
+                                        + "-fx-font-size: 12px;"
+                                        + "-fx-border-radius: 2;"
+                                        + "-fx-border-style: solid;"
+                                        + "-fx-border-width: 2;"
+                                        + "-fx-cursor: hand;"
+                        );
+                    }
+                });
+
+                btn_def.setOnMouseExited(new EventHandler<MouseEvent>(){
+
+                    @Override
+                    public void handle(MouseEvent t) {
+                        line_shapes_3.setStroke(Color.BLACK);
+                        line_shapes_4.setStroke(Color.BLACK);
+                        btn_def.setStyle(
+                                "-fx-border-color: #78797A; "
+                                        + "-fx-text-fill: #78797A;"
+                                        + "-fx-background-color: white;"
+                                        + "-fx-font-weight: 700;"
+                                        + "-fx-font-size: 12px;"
+                                        + "-fx-border-radius: 2;"
+                                        + "-fx-border-style: solid;"
+                                        + "-fx-border-width: 2;"
+                        );
+                    }
+                });
+
+                btn_star.setOnMouseExited(new EventHandler<MouseEvent>(){
+
+                    @Override
+                    public void handle(MouseEvent t) {
+                        line_shapes_2.setStroke(Color.BLACK);
+                        line_shapes_3.setStroke(Color.BLACK);
+                        btn_star.setStyle(
+                                "-fx-border-color: #78797A; "
+                                        + "-fx-text-fill: #78797A;"
+                                        + "-fx-background-color: white;"
+                                        + "-fx-font-weight: 700;"
+                                        + "-fx-font-size: 12px;"
+                                        + "-fx-border-radius: 2;"
+                                        + "-fx-border-style: solid;"
+                                        + "-fx-border-width: 2;"
+                        );
+                    }
+                });
+
+                btn1.setOnMouseEntered(new EventHandler<MouseEvent>
+                        () {
+
+                    @Override
+                    public void handle(MouseEvent t) {
+                        line_shapes_2.setStroke(Color.web("#0064B6"));
+                        line_shapes_3.setStroke(Color.web("#0064B6"));
+                        btn1.setStyle(
+                                "-fx-border-color: #659bf2; "
+                                        + "-fx-text-fill: white;"
+                                        + "-fx-background-color: #659bf2;"
+                                        + "-fx-font-weight: 700;"
+                                        + "-fx-font-size: 12px;"
+                                        + "-fx-border-radius: 2;"
+                                        + "-fx-border-style: solid;"
+                                        + "-fx-border-width: 2;"
+                                        + "-fx-cursor: hand;"
+                        );
+                    }
+                });
+
+                btn1.setOnMouseExited(new EventHandler<MouseEvent>(){
+
+                    @Override
+                    public void handle(MouseEvent t) {
+                        line_shapes_2.setStroke(Color.BLACK);
+                        line_shapes_3.setStroke(Color.BLACK);
+                        btn1.setStyle(
+                                "-fx-border-color: #78797A; "
+                                        + "-fx-text-fill: #78797A;"
+                                        + "-fx-background-color: white;"
+                                        + "-fx-font-weight: 700;"
+                                        + "-fx-font-size: 12px;"
+                                        + "-fx-border-radius: 2;"
+                                        + "-fx-border-style: solid;"
+                                        + "-fx-border-width: 2;"
+                        );
+                    }
+                });
+
                 btn4_clear.setOnMouseEntered(new EventHandler<MouseEvent>
                         () {
 
@@ -1971,6 +2791,64 @@ public class Graphics extends Application {
                                         + "-fx-border-style: solid;"
                                         + "-fx-border-width: 2;"
                         );
+                    }
+                });
+
+                colorPicker.setOnMouseEntered(new EventHandler<MouseEvent>
+                        () {
+
+                    @Override
+                    public void handle(MouseEvent t) {
+                        line4.setStroke(Color.web("#0064B6"));
+                        line10.setStroke(Color.web("#0064B6"));
+                        colorPicker.setStyle(
+                                "-fx-border-color: #659bf2; "
+                                        + "-fx-text-fill: white;"
+                                        + "-fx-background-color: #659bf2;"
+                                        + "-fx-font-weight: 700;"
+                                        + "-fx-font-size: 12px;"
+                                        + "-fx-border-radius: 2;"
+                                        + "-fx-border-style: solid;"
+                                        + "-fx-border-width: 2;"
+                                        + "-fx-cursor: hand;"
+                        );
+                    }
+                });
+
+                colorPicker.setOnMouseExited(new EventHandler<MouseEvent>(){
+
+                    @Override
+                    public void handle(MouseEvent t) {
+                        line4.setStroke(Color.BLACK);
+                        line10.setStroke(Color.BLACK);
+                        colorPicker.setStyle(
+                                "-fx-border-color: #78797A; "
+                                        + "-fx-text-fill: #78797A;"
+                                        + "-fx-background-color: white;"
+                                        + "-fx-font-weight: 700;"
+                                        + "-fx-font-size: 12px;"
+                                        + "-fx-border-radius: 2;"
+                                        + "-fx-border-style: solid;"
+                                        + "-fx-border-width: 2;"
+                        );
+                    }
+                });
+
+                slider_thickness.setOnMouseEntered(new EventHandler<MouseEvent>
+                        () {
+
+                    @Override
+                    public void handle(MouseEvent t) {
+                        line_shapes_1.setStroke(Color.web("#0064B6"));
+                    }
+                });
+
+                slider_thickness.setOnMouseExited(new EventHandler<MouseEvent>
+                        () {
+
+                    @Override
+                    public void handle(MouseEvent t) {
+                        line_shapes_1.setStroke(Color.BLACK);
                     }
                 });
 
@@ -2498,20 +3376,22 @@ public class Graphics extends Application {
                 back_button.setOnMouseClicked(new EventHandler<MouseEvent>() {
                     @Override
                     public void handle(MouseEvent event) {
+
                         oneSecTimer.stop();
                         oneSecTimer2.stop();
                         root.getChildren().removeAll( canvas, back_button, save_jpg_Text, save_png_Text,slider_red, slider_green, slider_blue, slider_redText, slider_greenText,
-                                slider_blueText, main_header,
-                                navbar_brushesRect, navbar_brushesIconView, navbar_brushesIconText,
+                                slider_blueText, main_header, slider_brightness, slider_brightnessText,
+                                navbar_brushesRect, navbar_brushesIconView, navbar_brushesIconText, brightnessText,
                                 navbar_shapesRect, navbar_shapesIconView, navbar_shapesIconText,
                                 navbar_stickersRect, navbar_stickersIconView, navbar_stickersIconText,
                                 navbar_textRect, navbar_textIconView, navbar_textIconText, field_for_features,
-                                btn1, btn2, btn3, btn3, btn4, btn4_clear, btn_blue, btn_red, btn_green, btn_brith, setting_logoView,
-                                colorPicker, slider_thicknessText, thicknessText, slider_thickness);
+                                btn1, btn_star, btn_def, btn2, btn3, btn3, btn4, btn4_clear, btn_blue, btn_red, btn_green, btn_brith, setting_logoView,
+                                colorPicker, slider_thicknessText, thicknessText, slider_thickness, btn_fill, line3, line4, line10, line_on_top_of_brightness,
+                                line_shapes_1, line_shapes_2, line_shapes_3, line_shapes_4, line_shapes_5, line_shapes_new1, line_under_brightness, text_hint);
                         root.getChildren().addAll(welcome_text, create_button, open_button, paste_button, new_file_imageView,
                                 new_file_Text, open_file_Text, paste_file_Text, open_folderImageView, paste_folderImageView,
                                 first_adv, second_image_with_desc, greetings_firstAdv_header, greetings_firstAdv_main,
-                                tiger_parrot_imageView, first_image_with_desc);
+                                tiger_parrot_imageView, first_image_with_desc, new_featuresView, new_featuresView2);
                     }
                 });
 
@@ -2542,15 +3422,27 @@ public class Graphics extends Application {
                     @Override
                     public void handle(MouseEvent event) {
                         try{
-                            ImageIO.write(SwingFXUtils.fromFXImage(wImage, null), "png", new FileOutputStream("image.png"));
+                            //Set extension filter
+                            FileChooser.ExtensionFilter extFilter =
+                                    new FileChooser.ExtensionFilter("png files (*.png)", "*.png");
+                            fileChooser.getExtensionFilters().add(extFilter);
+
+                            //Show save file dialog
+                            File file = fileChooser.showSaveDialog(primaryStage);
+                            WritableImage writableImage = new WritableImage(1500, 844);
+                            canvas.snapshot(null, writableImage);
+                            RenderedImage renderedImage = SwingFXUtils.fromFXImage(writableImage, null);
+                            ImageIO.write(renderedImage, "png", file);
                             root.getChildren().removeAll(canvas,  back_button, save_jpg_Text, save_png_Text, slider_red, slider_green, slider_blue, slider_redText, slider_greenText,
                                     slider_blueText, main_header,
                                     navbar_brushesRect, navbar_brushesIconView, navbar_brushesIconText,
                                     navbar_shapesRect, navbar_shapesIconView, navbar_shapesIconText,
                                     navbar_stickersRect, navbar_stickersIconView, navbar_stickersIconText,
                                     navbar_textRect, navbar_textIconView, navbar_textIconText, field_for_features,
-                                    btn1, btn2, btn3, btn3, btn4, btn4_clear, btn_blue, btn_red, btn_green, btn_brith, setting_logoView,
-                                    colorPicker, slider_thicknessText, thicknessText, slider_thickness);
+                                    btn1, btn_star, btn_def, btn2, btn3, btn3, btn4, btn4_clear, btn_blue, btn_red, btn_green, btn_brith, setting_logoView,
+                                    colorPicker, slider_thicknessText, thicknessText, slider_thickness, text_hint, btn_fill, line3,line4,line10,
+                                    line_on_top_of_brightness,line_shapes_1,line_shapes_2,line_shapes_3,line_shapes_4,line_shapes_5,line_shapes_new1,
+                                    line_under_brightness);
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
