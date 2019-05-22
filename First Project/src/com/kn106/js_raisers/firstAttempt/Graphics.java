@@ -147,25 +147,11 @@ public class Graphics extends Application {
         Rectangle first_image_with_desc = new Rectangle(773,582,293, 216);
         first_image_with_desc.setFill(Color.WHITE);
         root.getChildren().add(first_image_with_desc);
-        Image new_features = new Image(new FileInputStream("First Project/pics/new_features.jpg"));
-        ImageView new_featuresView = new ImageView(new_features);
-        new_featuresView.setX(773);
-        new_featuresView.setY(582);
-        new_featuresView.setFitWidth(293);
-        new_featuresView.setFitHeight(216);
-        root.getChildren().add(new_featuresView);
 
         // Greetings => first image with description
         Rectangle second_image_with_desc = new Rectangle(1092,582,293, 216);
         second_image_with_desc.setFill(Color.WHITE);
         root.getChildren().add(second_image_with_desc);
-        Image new_features2 = new Image(new FileInputStream("First Project/pics/app1.jpg"));
-        ImageView new_featuresView2 = new ImageView(new_features2);
-        new_featuresView2.setX(1092);
-        new_featuresView2.setY(582);
-        new_featuresView2.setFitWidth(293);
-        new_featuresView2.setFitHeight(216);
-        root.getChildren().add(new_featuresView2);
 
         // Greetings => new file image
         Image new_file_image = new Image(new FileInputStream("First Project/pics/newFile.png"));
@@ -1660,7 +1646,7 @@ public class Graphics extends Application {
                 // create button cursor changer
                 root.getChildren().removeAll(new_file_Text, new_file_imageView, open_file_Text, open_folderImageView, paste_file_Text, paste_folderImageView,
                         first_adv, greetings_firstAdv_header, greetings_firstAdv_main, first_image_with_desc,second_image_with_desc, welcome_text,
-                        create_button, open_button, paste_button, tiger_parrot_imageView, new_featuresView, new_featuresView2);
+                        create_button, open_button, paste_button, tiger_parrot_imageView);
                 background.setFill(Color.rgb(197,199,197));
 
                 File start_file = fileChooser.showOpenDialog(primaryStage);
@@ -2025,7 +2011,7 @@ public class Graphics extends Application {
                 // create button cursor changer
                 root.getChildren().removeAll(new_file_Text, new_file_imageView, open_file_Text, open_folderImageView, paste_file_Text, paste_folderImageView,
                         first_adv, greetings_firstAdv_header, greetings_firstAdv_main, first_image_with_desc, second_image_with_desc, welcome_text,
-                        create_button, open_button, paste_button, tiger_parrot_imageView, new_featuresView, new_featuresView2);
+                        create_button, open_button, paste_button, tiger_parrot_imageView);
 
                 background.setFill(Color.rgb(180, 183, 181));
 
@@ -3391,7 +3377,7 @@ public class Graphics extends Application {
                         root.getChildren().addAll(welcome_text, create_button, open_button, paste_button, new_file_imageView,
                                 new_file_Text, open_file_Text, paste_file_Text, open_folderImageView, paste_folderImageView,
                                 first_adv, second_image_with_desc, greetings_firstAdv_header, greetings_firstAdv_main,
-                                tiger_parrot_imageView, first_image_with_desc, new_featuresView, new_featuresView2);
+                                tiger_parrot_imageView, first_image_with_desc);
                     }
                 });
 
